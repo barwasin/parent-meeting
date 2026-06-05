@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>สรุปประชุมผู้ปกครอง 2026 — CodeLab Thailand (V5 & VEX IQ)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#1E2761; --gold:#D4AF37; --cream:#F8F5F0; --ink:#1A1A1A; --inksoft:#555;
+    --muted:#888; --line:#E2E2E8; --paper:#fff;
+    --v5:#DC2626; --v5soft:#FEECEC; --iq:#1F6FEB; --iqsoft:#E9F1FE;
+    --green:#16A34A;
+    --s1:#DC2626; --s2:#F97316; --s3:#FACC15; --s4:#84CC16; --s5:#0EA5E9; --s6:#8B5CF6;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:'Sarabun',sans-serif;color:var(--ink);margin:0;background:#EFEFF3;line-height:1.6;}
+  .wrap{max-width:1080px;margin:0 auto;background:var(--paper);}
+  /* HERO */
+  .hero{background:linear-gradient(135deg,var(--navy),#2b3680);color:#fff;padding:46px 40px 40px;}
+  .hero .kick{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:#bcc5ee;font-weight:600;}
+  .hero h1{font-size:34px;font-weight:800;margin:8px 0 6px;line-height:1.2;}
+  .hero p{margin:0;color:#d4daf3;font-size:15px;}
+  .hero .tags{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;}
+  .pill{display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;padding:6px 14px;border-radius:999px;}
+  .pill.v5{background:var(--v5);color:#fff;}
+  .pill.iq{background:var(--iq);color:#fff;}
+  .pill.method{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.25);}
+  /* NAV */
+  nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);display:flex;gap:4px;padding:10px 24px;flex-wrap:wrap;}
+  nav a{font-size:13px;font-weight:600;color:var(--inksoft);text-decoration:none;padding:7px 12px;border-radius:8px;}
+  nav a:hover{background:var(--cream);color:var(--navy);}
+  nav a.navsched{color:#fff;}
+  nav a.navsched.iq{background:var(--iq);} nav a.navsched.iq:hover{background:#1559c4;color:#fff;}
+  nav a.navsched.v5{background:var(--v5);} nav a.navsched.v5:hover{background:#b91c1c;color:#fff;}
+  section,#sched-v5,#sched-iq{scroll-margin-top:62px;}
+  /* SECTIONS */
+  section{padding:34px 40px;border-bottom:1px solid var(--line);}
+  h2.sec{font-size:24px;font-weight:800;color:var(--navy);margin:0 0 4px;display:flex;align-items:center;gap:10px;}
+  h2.sec .num{font-size:14px;background:var(--navy);color:#fff;width:30px;height:30px;border-radius:8px;
+    display:inline-flex;align-items:center;justify-content:center;font-weight:700;flex:0 0 auto;}
+  .lead{color:var(--inksoft);font-size:15px;margin:2px 0 22px;}
+  /* OVERVIEW cards */
+  .ages{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:8px;}
+  .age{background:var(--cream);border-radius:10px;padding:12px 10px;text-align:center;border:1px solid var(--line);}
+  .age b{display:block;color:var(--navy);font-size:15px;}
+  .age span{font-size:12px;color:var(--inksoft);}
+  .cycle{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .cy{flex:1;min-width:150px;background:var(--cream);border-left:4px solid var(--navy);border-radius:8px;padding:10px 14px;}
+  .cy b{display:block;font-size:14px;color:var(--navy);}
+  .cy span{font-size:12px;color:var(--inksoft);}
+  /* TRACK SPLIT */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  .col{padding:0;}
+  .col.v5{background:linear-gradient(180deg,var(--v5soft),#fff 120px);}
+  .col.iq{background:linear-gradient(180deg,var(--iqsoft),#fff 120px);}
+  .colhead{padding:18px 22px 14px;color:#fff;}
+  .col.v5 .colhead{background:var(--v5);}
+  .col.iq .colhead{background:var(--iq);}
+  .colhead .lg{font-size:12px;letter-spacing:2px;opacity:.85;font-weight:600;}
+  .colhead .gm{font-size:22px;font-weight:800;margin-top:2px;}
+  .col .body{padding:18px 22px 24px;}
+  .field{margin-bottom:16px;}
+  .field .ttl{font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;color:var(--muted);margin-bottom:5px;}
+  .col.v5 .field .ttl{color:var(--v5);}
+  .col.iq .field .ttl{color:var(--iq);}
+  .field p{margin:0;font-size:14px;color:var(--ink);}
+  .field ul{margin:4px 0 0;padding-left:18px;font-size:13.5px;}
+  .field li{margin-bottom:3px;}
+  .roles{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px;}
+  .role{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:12.5px;font-weight:600;}
+  .matchtime{display:inline-block;margin-top:6px;font-weight:800;font-size:15px;padding:4px 14px;border-radius:8px;border:2px solid;}
+  .col.v5 .matchtime{color:var(--v5);border-color:var(--v5);}
+  .col.iq .matchtime{color:var(--iq);border-color:var(--iq);}
+  /* schedule table */
+  table.sched{width:100%;border-collapse:collapse;font-size:13px;margin-top:4px;}
+  table.sched td{padding:6px 4px;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.sched td.d{font-weight:700;white-space:nowrap;width:34%;}
+  table.sched td.loc{text-align:right;color:var(--muted);font-size:11.5px;white-space:nowrap;}
+  /* cost */
+  .cost{display:flex;flex-direction:column;gap:6px;}
+  .costrow{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:13.5px;}
+  .costrow b{font-size:15px;}
+  .free{color:var(--green);}
+  /* awards won */
+  .awwon{font-size:12.5px;}
+  .awwon .ev{font-weight:700;color:var(--navy);margin-top:8px;}
+  .awwon .it{color:var(--inksoft);padding-left:6px;}
+  .badgewc{display:inline-block;background:var(--gold);color:#3a2e00;font-weight:700;font-size:11px;padding:1px 7px;border-radius:5px;margin-left:4px;}
+  .note{font-size:11.5px;color:var(--muted);margin-top:10px;font-style:italic;}
+  /* AWARDS shared */
+  .awgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .awbox{border:1px solid var(--line);border-radius:12px;padding:16px 18px;}
+  .awbox h4{margin:0 0 8px;font-size:15px;}
+  .awbox.en{background:#fdf8ee;border-color:#ecd9a8;}
+  .awbox.rank{background:#eef6ff;border-color:#c4ddfb;}
+  .awbox ul{margin:0;padding-left:18px;font-size:13.5px;}
+  .excel{background:linear-gradient(135deg,#fffaf0,#fff);border:1px solid var(--gold);border-radius:12px;padding:16px 18px;margin-top:16px;}
+  .excel h4{margin:0 0 6px;color:#9a7400;font-size:16px;}
+  .excel p{margin:4px 0;font-size:13.5px;}
+  .award-list{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 18px;margin-top:14px;font-size:13.5px;}
+  .award-list div{padding:5px 0;border-bottom:1px dashed var(--line);}
+  /* EDP */
+  .edp{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .step{border-radius:12px;padding:14px;color:#fff;}
+  .step b{font-size:13px;opacity:.9;}
+  .step h4{margin:2px 0 4px;font-size:16px;}
+  .step p{margin:0;font-size:13px;opacity:.96;}
+  .step.dark{color:#1a1a1a;}
+  .repeat{margin-top:14px;background:var(--navy);color:#fff;border-radius:10px;padding:12px 16px;font-size:14px;text-align:center;}
+  /* rubric */
+  .rubric{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .rcard{border:1px solid var(--line);border-radius:12px;padding:14px 18px;background:var(--cream);}
+  .rcard h4{margin:0 0 8px;font-size:15px;color:var(--navy);}
+  .rcard ol{margin:0;padding-left:20px;font-size:13.5px;}
+  /* parent roles */
+  .proles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .prole{border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .prole .ph{background:var(--navy);color:#fff;padding:10px 14px;font-weight:700;font-size:15px;}
+  .prole .pb{padding:12px 14px;font-size:13px;}
+  .do{color:var(--green);} .dont{color:var(--v5);}
+  .prole .pb ul{margin:4px 0;padding-left:18px;}
+  .saywrap{margin-top:14px;border:1px solid var(--line);border-radius:12px;overflow:hidden;}
+  .saywrap table{width:100%;border-collapse:collapse;font-size:13.5px;}
+  .saywrap th{background:var(--cream);padding:8px 14px;text-align:left;font-size:12px;color:var(--inksoft);}
+  .saywrap td{padding:8px 14px;border-top:1px solid var(--line);}
+  .saywrap .bad{color:var(--v5);} .saywrap .good{color:var(--green);font-weight:600;}
+  /* codes */
+  .codes{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .code{border:1px solid var(--line);border-radius:12px;padding:14px 16px;}
+  .code h4{margin:0 0 4px;font-size:15px;color:var(--navy);}
+  .code .sub{font-size:11px;color:var(--muted);margin-bottom:10px;}
+  .code .c{margin-bottom:9px;font-size:13px;}
+  .code .c b{color:var(--navy);}
+  .gbar{margin-top:16px;background:var(--cream);border-radius:12px;padding:14px 18px;font-size:13px;}
+  .gbar b{color:var(--navy);}
+  /* commitment / buffet */
+  .commit{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+  .cm{background:var(--cream);border-radius:10px;padding:12px 14px;}
+  .cm b{color:var(--navy);font-size:14px;}
+  .cm p{margin:4px 0 0;font-size:12.5px;color:var(--inksoft);}
+  .buffet{margin-top:14px;background:linear-gradient(135deg,#fff4f4,#fff);border:1px dashed var(--v5);border-radius:12px;padding:14px 18px;}
+  .buffet b{color:var(--v5);}
+  .buffet .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;}
+  .buffet .chips span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:12.5px;}
+  /* contact */
+  .contact{background:var(--navy);color:#fff;padding:34px 40px;}
+  .contact h2{color:#fff;margin:0 0 14px;font-size:22px;}
+  .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .cgrid .blk{background:rgba(255,255,255,.08);border-radius:12px;padding:14px 18px;}
+  .cgrid .blk b{color:var(--gold);font-size:13px;display:block;margin-bottom:4px;}
+  .cgrid .blk p{margin:2px 0;font-size:14px;}
+  footer{padding:18px 40px;font-size:12px;color:var(--muted);text-align:center;}
+  @media (max-width:760px){
+    .split,.awgrid,.rubric{grid-template-columns:1fr;}
+    .proles,.codes,.commit,.edp{grid-template-columns:1fr;}
+    .ages{grid-template-columns:repeat(2,1fr);}
+    .cgrid,.award-list{grid-template-columns:1fr;}
+    section,.hero,.contact{padding-left:20px;padding-right:20px;}
+  }
+  @media print{
+    body{background:#fff;} nav{display:none;} section{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="kick">CodeLab Thailand · Parents Orientation &amp; Open House</div>
+    <h1>สรุปประชุมผู้ปกครอง ปีการแข่งขัน 2026–2027</h1>
+    <p>แยกตามรุ่นการแข่งขัน — VEX V5 (Override) และ VEX IQ (Level Up) · งานเดียวจบครบทุกเรื่อง VEX Competition</p>
+    <div class="tags">
+      <span class="pill v5">VEX V5RC · OVERRIDE</span>
+      <span class="pill iq">VEX IQRC · LEVEL UP</span>
+      <span class="pill method">Method &gt; Medal — เรียน know-how ให้แน่น ถ้วยจะตามมาเอง</span>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#overview">ภาพรวม VEX</a>
+    <a href="#tracks">เปรียบเทียบ V5 / IQ</a>
+    <a href="#sched-iq" class="navsched iq">📅 ตารางแข่ง IQ</a>
+    <a href="#sched-v5" class="navsched v5">📅 ตารางแข่ง V5</a>
+    <a href="#awards">รางวัล</a>
+    <a href="#edp">EDP</a>
+    <a href="#en">Engineering Notebook</a>
+    <a href="#parents">บทบาทผู้ปกครอง</a>
+    <a href="#commit">การฝึกซ้อม</a>
+    <a href="#codes">3 Codes &amp; G1–G6</a>
+    <a href="#contact">ติดต่อ</a>
+  </nav>
+
+  <!-- OVERVIEW (shared) -->
+  <section id="overview">
+    <h2 class="sec"><span class="num">1</span> VEX Robotics &amp; Competition คืออะไร</h2>
+    <p class="lead">VEX ก่อตั้งปี 2005 ด้วยวิสัยทัศน์ “ทำให้การเรียน STEM เป็นเรื่องสนุกผ่านหุ่นยนต์” เป้าหมายคือสร้างแพลตฟอร์มที่เด็กทุกวัยเข้าถึงได้ การแข่งขันแบ่งเป็น 2 League หลัก คือ <b style="color:var(--iq)">VEX IQ</b> และ <b style="color:var(--v5)">VEX V5</b></p>
+    <div class="ages">
+      <div class="age"><b>4–7 ปี</b><span>เรียนรู้ไม่ใช้หน้าจอ (Screen-free)</span></div>
+      <div class="age"><b>6–11 ปี</b><span>เริ่ม Block Coding + สร้างหุ่น</span></div>
+      <div class="age"><b>8–14 ปี</b><span>แข่งจริง + โค้ดขั้นสูง + หลักวิศวกรรม</span></div>
+      <div class="age"><b>12–16 ปี</b><span>เน้นเรียนรู้ ก่อนเข้าสู่ VEX V5</span></div>
+      <div class="age"><b>14–18 ปี</b><span>ระบบซับซ้อนเหมือนงานจริง แข่งจริงจัง</span></div>
+    </div>
+    <p class="lead" style="margin:16px 0 4px"><b>ช่วงอายุรุ่นแข่ง:</b> <b style="color:var(--iq)">VIQRC</b> — Elementary 8–12 ปี, Middle School 11–15 ปี · <b style="color:var(--v5)">V5RC</b> — Middle School 11–15 ปี, High School 14–19 ปี — นับอายุไม่เกินที่กำหนด ณ วันที่ 1 พ.ค. ของปีที่แข่ง World</p>
+    <div class="cycle">
+      <div class="cy"><b>Prep &amp; Practice</b><span>มิ.ย. 2026</span></div>
+      <div class="cy"><b>Local &amp; Regional</b><span>ก.ย. 2026 – ก.พ. 2027</span></div>
+      <div class="cy"><b>Thai National Championship</b><span>ม.ค. 2027</span></div>
+      <div class="cy"><b>World Championship &amp; Game Reveal</b><span>พ.ค. 2027</span></div>
+    </div>
+  </section>
+
+  <!-- TRACK SPLIT -->
+  <section id="tracks">
+    <h2 class="sec"><span class="num">2</span> รูปแบบการแข่งขัน — แยกตามรุ่น</h2>
+    <p class="lead">ทั้งสองรุ่นใช้ App และหลักการเดียวกัน แต่รูปแบบสนาม จำนวนผู้เล่น ตารางแข่ง และค่าใช้จ่ายเพิ่มเติม “ต่างกัน” ตามตารางด้านล่าง</p>
+    <div class="split">
+
+      <!-- V5 COLUMN -->
+      <div class="col v5">
+        <div class="colhead"><div class="lg">VEX V5RC</div><div class="gm">OVERRIDE</div></div>
+        <div class="body">
+          <div class="field">
+            <div class="ttl">Qualification Match — 2 vs 2</div>
+            <p>จับคู่ 2 ทีมแข่งกับอีก 2 ทีม ในสนามมี 4 ทีมพร้อมกัน แบ่งเป็นสีแดง (2 ทีม) และสีน้ำเงิน (2 ทีม)</p>
+            <ul>
+              <li><b>Autonomous</b> 15 วินาที — หุ่นเล่นเอง</li>
+              <li><b>Driver Control</b> 1 นาที 45 วินาที — เด็กบังคับ ทำคะแนนต่อจาก Auton</li>
+            </ul>
+          </div>
+          <div class="field">
+            <div class="ttl">ผู้เล่นในสนาม (3 คน)</div>
+            <div class="roles"><span class="role">1 Driver</span><span class="role">1 Loader</span><span class="role">1 Drive Coach</span></div>
+            <p style="font-size:12px;color:var(--muted);margin-top:5px">Drive Coach = strategist · scout คู่แข่ง · ดู scoreboard · จัดการ alliance communication</p>
+            <span class="matchtime">2 นาที / match</span>
+          </div>
+          <div class="field">
+            <div class="ttl">Robot Skills Challenge (Individual)</div>
+            <ul>
+              <li>Autonomous — เขียนโค้ดให้หุ่นเล่นเอง</li>
+              <li>Driving Skill — บังคับเอง</li>
+              <li>เล่นได้ 3 ครั้ง/ประเภท เลือกครั้งที่ดีที่สุด</li>
+            </ul>
+          </div>
+          <div class="field" id="sched-v5">
+            <div class="ttl">ตารางแข่ง 2026–2027</div>
+            <table class="sched">
+              <tr><td class="d">12–13 พ.ย. 2026</td><td>VIQRC Thailand Tournament – MS/HS</td><td class="loc">All Robotic</td></tr>
+              <tr><td class="d">17–20 ธ.ค. 2026</td><td>VEX Asian Open @XXX</td><td class="loc">XXX, China</td></tr>
+              <tr><td class="d">14–15 ม.ค. 2026</td><td>V5RC TH National Championship</td><td class="loc">All Robotic</td></tr>
+              <tr><td class="d">13–14 มี.ค. 2027</td><td>Japan Cup</td><td class="loc">Tokyo, Japan</td></tr>
+            </table>
+            <div class="note">*อัพเดท ณ วันที่ 27 พ.ค. 2026 · รายการ <b>All Robotic</b> ยังไม่ยืนยันวันที่ — วันที่แจ้งเป็นวันโดยประมาณอ้างอิงจากปีที่แล้ว</div>
+          </div>
+          <div class="field">
+            <div class="ttl">ค่าใช้จ่ายเพิ่มเติม</div>
+            <p style="font-size:12.5px;color:var(--inksoft);margin-bottom:6px">ค่าคอร์ส Competition ครอบคลุมถึง Thailand National (~16 ม.ค.)</p>
+            <div class="cost">
+              <div class="costrow"><span>Asia Open · ธ.ค. 2026</span><b class="free">รวมในค่าเรียน</b></div>
+              <div class="costrow"><span>Japan Cup · มี.ค. 2027</span><b>+20,000 ฿ / คน</b></div>
+              <div class="costrow"><span>VEX World · เม.ย. 2027</span><b>+30,000 ฿ / คน</b></div>
+            </div>
+            <div class="note">ค่าโค้ช (flight+ที่พัก) share เท่ากันตามจำนวนเด็ก · ค่าเดินทาง/ที่พักของลูกผู้ปกครองจัดการเอง</div>
+          </div>
+          <div class="field">
+            <div class="ttl">รางวัลที่ทีมเราได้ ปี 2025–2026</div>
+            <div class="awwon">
+              <div class="ev">V5RC Push Back · TH National (MS)</div>
+              <div class="it">2989A — Excellence Award · Robot Skills Champion</div>
+              <div class="ev">VEX Asia Open Signature Event (MS)</div>
+              <div class="it">2989A — Inspire Award</div>
+              <div class="ev">2026 VEX Robotics World Championship</div>
+              <div class="it">เข้าร่วมการแข่งขัน</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IQ COLUMN -->
+      <div class="col iq">
+        <div class="colhead"><div class="lg">VEX IQRC</div><div class="gm">LEVEL UP</div></div>
+        <div class="body">
+          <div class="field">
+            <div class="ttl">Qualification Match — Teamwork Format</div>
+            <p>เล่นแบบ Alliance ทั้งคู่เป็น “ทีมเดียวกัน” ต้องช่วยกันทำคะแนนให้มากที่สุด ไม่ได้แข่งกันเอง จับคู่แบบ Random Team</p>
+            <ul>
+              <li>ได้แข่ง 5–8 matches/ทีม (ขึ้นกับขนาดงาน)</li>
+              <li>รอบ Practice ไม่คิดคะแนน</li>
+              <li>ถ้ามี 8 matches จะตัด 2 match ที่น้อยสุดทิ้ง แล้วเฉลี่ยที่เหลือ</li>
+            </ul>
+          </div>
+          <div class="field">
+            <div class="ttl">ผู้เล่นในสนาม (3 คน)</div>
+            <div class="roles"><span class="role">2 Drivers</span><span class="role">1 Loader</span></div>
+            <p style="font-size:12px;color:var(--muted);margin-top:5px">เน้นการสื่อสารและประสานงานระหว่างผู้เล่นในทีม</p>
+            <span class="matchtime">1 นาที / match</span>
+          </div>
+          <div class="field">
+            <div class="ttl">Robot Skills Challenge (Individual)</div>
+            <ul>
+              <li>Autonomous — เขียนโค้ดให้หุ่นเล่นเอง</li>
+              <li>Driving Skill — บังคับเอง</li>
+              <li>เล่นได้ 3 ครั้ง/ประเภท เลือกครั้งที่ดีที่สุด</li>
+            </ul>
+          </div>
+          <div class="field" id="sched-iq">
+            <div class="ttl">ตารางแข่ง 2026–2027</div>
+            <table class="sched">
+              <tr><td class="d">2 ส.ค. 2026</td><td>VEX IQ Internal Scrimmage</td><td class="loc">CodeLab</td></tr>
+              <tr><td class="d">1 พ.ย. 2026</td><td>VIQRC Open Scrimmage</td><td class="loc">CodeLab</td></tr>
+              <tr><td class="d">14–15 พ.ย. 2026</td><td>VIQRC Thailand Tournament – ES/MS</td><td class="loc">All Robotic</td></tr>
+              <tr><td class="d">17–20 ธ.ค. 2026</td><td>VEX Asian Open @XXX</td><td class="loc">XXX, China</td></tr>
+              <tr><td class="d">16–17 ม.ค. 2026</td><td>VIQRC TH National Championship – ES/MS</td><td class="loc">All Robotic</td></tr>
+              <tr><td class="d">13–14 มี.ค. 2027</td><td>Japan Cup</td><td class="loc">Tokyo, Japan</td></tr>
+            </table>
+            <div class="note">*อัพเดท ณ วันที่ 27 พ.ค. 2026 · รายการ <b>All Robotic</b> ยังไม่ยืนยันวันที่ — วันที่แจ้งเป็นวันโดยประมาณอ้างอิงจากปีที่แล้ว</div>
+          </div>
+          <div class="field">
+            <div class="ttl">ค่าใช้จ่ายเพิ่มเติม</div>
+            <p style="font-size:12.5px;color:var(--inksoft);margin-bottom:6px">ค่าคอร์ส Competition ครอบคลุมถึง Thailand National (~16 ม.ค.)</p>
+            <div class="cost">
+              <div class="costrow"><span>Asia Open · ธ.ค. 2026</span><b class="free">รวมในค่าเรียน</b></div>
+              <div class="costrow"><span>Japan Cup · มี.ค. 2027</span><b>+10,000 ฿ / คน</b></div>
+              <div class="costrow"><span>VEX World · เม.ย. 2027</span><b>+20,000 ฿ / คน</b></div>
+            </div>
+            <div class="note">ค่าโค้ช (flight+ที่พัก) share เท่ากันตามจำนวนเด็ก · ค่าเดินทาง/ที่พักของลูกผู้ปกครองจัดการเอง</div>
+          </div>
+          <div class="field">
+            <div class="ttl">รางวัลที่ทีมเราได้ ปี 2025–2026</div>
+            <div class="awwon">
+              <div class="ev">Central Regional Qualifier (PIM) · ES</div>
+              <div class="it">2999K Teamwork Champion · 2999H Teamwork 2nd · 2999C Judges Award · 2999F Robot Skills 3rd</div>
+              <div class="ev">VEX Asia Open Signature Event · ES</div>
+              <div class="it">2999C Design Award</div>
+              <div class="ev">TH National Championship (PIM) · ES</div>
+              <div class="it">2999K Excellence · 2999F &amp; 2999H Teamwork Champion · 2999B Teamwork 2nd · 2999F Amaze · 2999B Build · 2999C Energy · 2999F &amp; 2999C &amp; 2999J Robot Skills 2nd/3rd</div>
+              <div class="ev">ARB Competition Thailand Open</div>
+              <div class="it">2999C &amp; 2999F Teamwork Champion · 2999F Robot Skills Champion · 2999H Teamwork 2nd &amp; Robot Skills 2nd</div>
+              <div class="ev">VIQRC Japan Cup 2026 · ES/MS</div>
+              <div class="it">2999C Excellence (ES) · 2999J Robot Skills Champion · 2999J Teamwork 2nd · 2999J Amaze</div>
+              <div class="ev">2026 VEX Robotics World Championship</div>
+              <div class="it">2999K Amaze Award <span class="badgewc">WORLD</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AWARDS shared -->
+  <section id="awards">
+    <h2 class="sec"><span class="num">3</span> ระบบรางวัล &amp; เส้นทางสู่ World</h2>
+    <p class="lead">รางวัลในการแข่งขัน VEX มีทั้งหมด 13 รางวัล แบ่งง่ายๆ เป็น 2 กลุ่ม — กลุ่มที่ “เน้น Engineering Notebook” (กรรมการตัดสิน) และกลุ่มที่ “เน้นผลในสนาม” (Ranking)</p>
+    <div class="awgrid">
+      <div class="awbox en">
+        <h4>📓 เน้น Engineering Notebook (7)</h4>
+        <ul>
+          <li>Design Award — กระบวนการออกแบบ</li>
+          <li>Innovate Award — นวัตกรรม</li>
+          <li>Create Award — ความคิดสร้างสรรค์</li>
+          <li>Think Award — ความเชี่ยวชาญการเขียนโปรแกรม</li>
+          <li>Build Award — คุณภาพ/ความประณีตของหุ่น</li>
+          <li><b>Excellence Award</b> + <b>Amaze Award</b> (ใช้ทั้ง EN และผลแข่ง)</li>
+        </ul>
+      </div>
+      <div class="awbox rank">
+        <h4>🏆 เน้นผลการแข่งขัน (2)</h4>
+        <ul>
+          <li>Teamwork Champions — คะแนน Teamwork สูงสุดรอบ Final</li>
+          <li>Robot Skills Champion — Driver + Autonomous Skill รวมสูงสุด (มีโอกาสได้ Spot ไป World ถ้าคะแนนสูงสุดในโลก)</li>
+        </ul>
+        <p style="font-size:12.5px;color:var(--inksoft);margin:8px 0 0">รางวัลอื่นในกลุ่ม Teamwork: 2nd / 3rd / 4th / 5th Place</p>
+      </div>
+    </div>
+    <div class="excel">
+      <h4>⭐ Excellence Award — รางวัลสูงสุดแห่งความเป็นเลิศ</h4>
+      <p>รางวัลเดียวที่ต้องผ่าน “ทั้งการตัดสิน และผลในสนาม”:</p>
+      <p>1) <b>Engineering Notebook + Interview</b> — EN ต้องอยู่อันดับสูงสุดหรือใกล้เคียง สัมภาษณ์ดีเยี่ยม (กรรมการให้น้ำหนักถึง 60%)</p>
+      <p>2) <b>Teamwork &amp; Robot Skill</b> — ต้องอยู่ใน 40% แรกของ Qualifying, Robot Skills และ Autonomous Coding หากตกเกณฑ์ใดเกณฑ์หนึ่งจะหมดสิทธิ์</p>
+      <p style="color:var(--muted);font-size:12.5px">* ทีมที่ได้ Excellence จะไม่สามารถรับ Judged Award อื่นได้อีก</p>
+    </div>
+    <p class="lead" style="margin:18px 0 0"><b style="color:var(--navy)">Method &gt; Medal</b> — Spot ไป World อาจมีการเปลี่ยนแปลง เพราะข้อมูลเดิมเป็นของ RECF แต่ปัจจุบัน VEX แยกตัวจาก RECF แล้วและยังไม่ประกาศใหม่</p>
+  </section>
+
+  <!-- EDP -->
+  <section id="edp">
+    <h2 class="sec"><span class="num">4</span> Engineering Design Process (EDP)</h2>
+    <p class="lead">“กระบวนการคิดแบบวิศวกร” — ไม่ใช่แค่ทำหุ่น แต่ใช้แก้ทุกปัญหาในชีวิต: คิดเป็นระบบ · ไม่กลัวล้มเหลว · ปรับตัวได้ (แผน A/B/C/D) · ประหยัดเวลา</p>
+    <div class="edp">
+      <div class="step" style="background:var(--s1)"><b>STEP 1</b><h4>ระบุปัญหา</h4><p>เกมนี้ต้องทำอะไร? เป้าหมายคืออะไร?</p></div>
+      <div class="step" style="background:var(--s2)"><b>STEP 2</b><h4>ระดมความคิด</h4><p>คิดหลายวิธี ไม่กลัวความคิดแปลกๆ</p></div>
+      <div class="step dark" style="background:var(--s3)"><b>STEP 3</b><h4>เลือกวิธีที่ดีที่สุด</h4><p>เปรียบเทียบแล้วเลือก 1 วิธี</p></div>
+      <div class="step dark" style="background:var(--s4)"><b>STEP 4</b><h4>สร้าง / เขียนโปรแกรม</h4><p>ลงมือสร้างหุ่นตามแผน</p></div>
+      <div class="step" style="background:var(--s5)"><b>STEP 5</b><h4>ทดสอบ</h4><p>ลองใช้ดู วัดผลจริง</p></div>
+      <div class="step" style="background:var(--s6)"><b>STEP 6</b><h4>ทำซ้ำแบบปรับปรุง</h4><p>แก้จุดอ่อน แล้ววนซ้ำ (Iterate)</p></div>
+    </div>
+    <div class="repeat">REPEAT · ITERATIVE — “You don't get it right the first time” ความผิดพลาดคือข้อมูลให้พัฒนาต่อ</div>
+  </section>
+
+  <!-- EN -->
+  <section id="en">
+    <h2 class="sec"><span class="num">5</span> Engineering Notebook &amp; การตัดสิน</h2>
+    <p class="lead">EN สำคัญกว่าคะแนนจริงไหม? — จริง เพราะ 7 ใน 9 รางวัลที่ตัดสินโดยกรรมการ เน้นที่ Engineering Notebook กรรมการประเมินจาก 2 หน้าหลัก:</p>
+    <div class="rubric">
+      <div class="rcard">
+        <h4>Page 1 — Engineering Design Process</h4>
+        <ol>
+          <li>Identify the Problem / Design Goal(s)</li>
+          <li>Brainstorm Solutions</li>
+          <li>Select Best Solution</li>
+          <li>Build and Program the Solution</li>
+          <li>Original Testing of Solutions</li>
+          <li>Repeat Design Process (Iteration)</li>
+        </ol>
+      </div>
+      <div class="rcard">
+        <h4>Page 2 — Format and Content (5 ข้อ)</h4>
+        <ol>
+          <li>Independent Inquiry — สืบค้นด้วยตนเอง (Student-centered)</li>
+          <li>Usability &amp; Completeness — ทำงานและสมบูรณ์</li>
+          <li>Originality &amp; Quality — เป็นต้นฉบับและมีคุณภาพ</li>
+          <li>Organization / Readability — จัดระเบียบ อ่านง่าย</li>
+          <li>Record of Team &amp; Project Management</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARENTS -->
+  <section id="parents">
+    <h2 class="sec"><span class="num">6</span> บทบาทผู้ปกครอง (Student-Centered)</h2>
+    <p class="lead">ทีมที่ไปได้ไกล มักเป็นทีมที่ผู้ปกครอง support เป็นทีม — ดูแลด้าน เวลา (รับ-ส่ง/ซ้อม) · ประสานโรงเรียน (แจ้งลาไปแข่ง) · กำลังใจ (ไม่กดดันผล) · การเดินทาง inter · เคารพว่า EN เป็นของเด็ก · สื่อสารผ่าน LINE กลุ่มทีม</p>
+    <div class="proles">
+      <div class="prole">
+        <div class="ph">1 · Supporting Actor</div>
+        <div class="pb">
+          <p class="do"><b>ทำ:</b></p>
+          <ul><li>ฟังลูกเล่าเรื่องการเรียนรู้และปัญหา</li><li>ถามกระตุ้น “ทำไมเลือกวิธีนี้?” “มีวิธีอื่นไหม?”</li><li>ให้กำลังใจเมื่อติดปัญหา</li></ul>
+          <p class="dont"><b>ไม่ทำ:</b> เขียน EN แทน · คิด/แก้โค้ดแทน · เปรียบเทียบกับเด็กคนอื่น · ทำให้ทั้งหมดเพราะอยากชนะ</p>
+          <p style="font-weight:700;color:var(--v5)">“Error is not failure!”</p>
+        </div>
+      </div>
+      <div class="prole">
+        <div class="ph">2 · Documentation Assistant</div>
+        <div class="pb">
+          <ul>
+            <li>ถ่ายรูปลูกขณะทำงาน (ถ้าได้รับอนุญาต)</li>
+            <li>แนะนำการจัดระเบียบสมุด แต่ให้ลูกเขียนเนื้อหาเอง</li>
+            <li>ย้ำให้ลงวันที่และบันทึกความรู้สึกทุกครั้ง</li>
+            <li>ฟีดแบ็คด้วยคำพูดเชิงบวก</li>
+          </ul>
+        </div>
+      </div>
+      <div class="prole">
+        <div class="ph">3 · Growth Mindset</div>
+        <div class="pb">
+          <ul>
+            <li>“เรียนรู้สำคัญกว่าชนะ”</li>
+            <li>“ทุกความผิดพลาดคือบทเรียน”</li>
+            <li>“ความพยายามสำคัญกว่าความสามารถ”</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="saywrap">
+      <table>
+        <tr><th>แทนที่จะพูดว่า…</th><th>ลองเปลี่ยนเป็น…</th></tr>
+        <tr><td class="bad">“เก่งจัง!”</td><td class="good">“เห็นหนูตั้งใจทำมาก!”</td></tr>
+        <tr><td class="bad">“ทำไมไม่ได้อย่างเพื่อน?”</td><td class="good">“วิธีนี้ยังไม่ได้ผล ลองวิธีใหม่ดูไหม?”</td></tr>
+        <tr><td class="bad">“ต้องได้รางวัล!”</td><td class="good">“ไม่ว่าผลจะเป็นยังไง แม่ภูมิใจในตัวหนูแล้ว”</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- COMMITMENT -->
+  <section id="commit">
+    <h2 class="sec"><span class="num">7</span> Team Commitment &amp; Buffet Mode</h2>
+    <p class="lead">การฝึกฝนคือทางออก — ทีมที่ iterate บ่อยคือทีมที่ไปไกล</p>
+    <div class="commit">
+      <div class="cm"><b>การเข้าฝึกซ้อม</b><p>เข้าซ้อมตรงเวลาตามตาราง ใช้ Buffet Mode ซ้อมเพิ่มได้ทุกเมื่อ — การซ้อมเพิ่มคือ unfair advantage</p></div>
+      <div class="cm"><b>การสื่อสาร</b><p>ทุก update ต้องครบ: ทำอะไร แก้อะไร ผลเป็นยังไง ใคร เมื่อไหร่ — ทีมที่สื่อสารชัด iterate เร็วกว่า 2 เท่า</p></div>
+      <div class="cm"><b>ความรับผิดชอบ</b><p>เป็นเจ้าของงานที่ทีมมอบหมาย ทำให้เสร็จตรงเวลา ส่งต่อเพื่อนได้ (VEX G2 Student-centered)</p></div>
+    </div>
+    <div class="buffet">
+      <b>BUFFET MODE — จุดเด่นของ CodeLab Competition Track</b>
+      <div class="chips">
+        <span>✓ ซ้อมนอกเวลาได้ ไม่จำกัดจำนวนครั้ง</span>
+        <span>✓ สอนแบบโค้ช 1 คน ต่อเด็ก 1 ทีม</span>
+        <span>✓ หลักสูตรออกแบบ &amp; ปรับปรุงจากประสบการณ์ทีมที่ไประดับโลก</span>
+        <span>✓ ใช้อุปกรณ์ที่ศูนย์ (ไม่ต้องซื้อชุดเอง)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CODES -->
+  <section id="codes">
+    <h2 class="sec"><span class="num">8</span> 3 Codes for Everyone &amp; VEX G1–G6</h2>
+    <div class="codes">
+      <div class="code">
+        <h4>Coach Code</h4>
+        <div class="sub">CODE · 01</div>
+        <div class="c"><b>C1</b> ปัญหา ≠ เด็ก (ปัญหา = ระบบที่ออกแบบไม่ดีพอ)</div>
+        <div class="c"><b>C2</b> ชมต่อหน้า · แก้แบบ 1-on-1</div>
+        <div class="c"><b>C3</b> ไม่ว่าร้ายต่อหน้าเด็ก / No hate speech</div>
+        <div class="c"><b>C4</b> สอน — ไม่ทำแทน (VEX G2)</div>
+        <div class="c"><b>C5</b> Feedback สร้างสรรค์ “I noticed X · I felt Y · Could we try Z?”</div>
+        <div class="c"><b>C6</b> Safety ก่อน Performance</div>
+      </div>
+      <div class="code">
+        <h4>Student Code</h4>
+        <div class="sub">CODE · 02</div>
+        <div class="c"><b>S1</b> Method &gt; Medal</div>
+        <div class="c"><b>S2</b> ไม่ว่ากัน ไม่โทษกัน “เราจะแก้ยังไง?”</div>
+        <div class="c"><b>S3</b> Yes, and… ต่อยอดไอเดียเพื่อน</div>
+        <div class="c"><b>S4</b> EN เป็นของเรา — เราเขียน เราทำ</div>
+        <div class="c"><b>S5</b> Failure = Data = Improve</div>
+        <div class="c"><b>S6</b> ทุ่มเททีมเดียว (1 season = 1 team, VEX G5)</div>
+      </div>
+      <div class="code">
+        <h4>Parent Code</h4>
+        <div class="sub">CODE · 03</div>
+        <div class="c"><b>P1</b> เด็กทำ — เราชม (ไม่ออกแบบ/ประกอบ/เขียน EN ให้ลูก, VEX G4)</div>
+        <div class="c"><b>P2</b> Process &gt; Result “iterate ครั้งนี้เปลี่ยนอะไร?”</div>
+        <div class="c"><b>P3</b> ไม่พูดถึงทีมอื่นในแง่ลบ (รวม LINE/Social)</div>
+        <div class="c"><b>P4</b> เคารพ Coach Code · concern → คุย 1-on-1 กับโค้ช</div>
+        <div class="c"><b>P5</b> แจ้งล่วงหน้า ไม่หายเงียบ</div>
+        <div class="c"><b>P6</b> Trust the Process (season 8 เดือนมี ups+downs)</div>
+      </div>
+    </div>
+    <div class="gbar">
+      <b>VEX G1–G6 Rules:</b> G1 เคารพทุกคน · G2 Student-centered (เด็กเป็นเจ้าของงาน) · G3 ใช้สามัญสำนึก · G4 งานต้องสะท้อนฝีมือนักเรียน · G5 เด็ก 1 คน = 1 ทีม/season · G6 ผิดโดยไม่ตั้งใจ ≠ จงใจ
+    </div>
+    <p class="lead" style="margin-top:14px"><b style="color:var(--navy)">อนาคต:</b> VEX AIR และ RECF Aerial Drone — เทรนด์ใหม่ที่กำลังจะมา</p>
+  </section>
+
+  <!-- CONTACT -->
+  <div class="contact" id="contact">
+    <h2>ติดต่อ CodeLab Thailand</h2>
+    <div class="cgrid">
+      <div class="blk">
+        <b>ช่องทางออนไลน์</b>
+        <p>LINE Official: @CodeLabThailand</p>
+        <p>Website: codelabthailand.com</p>
+        <p>Facebook: fb.me/CodeLabThailand</p>
+      </div>
+      <div class="blk">
+        <b>สาขา</b>
+        <p>พระราม 2 — 9 ถนนพระรามที่ 2 · แอดมิน เอิร์น · 090-155-5192</p>
+        <p>เมืองทอง — ม.สุโขทัยฯ ชั้น 2 · แอดมิน ไนซ์ · 083-475-0023</p>
+      </div>
+    </div>
+    <p style="margin:16px 0 0;color:#d4daf3;font-size:14px">ขอบคุณที่ไว้วางใจ CodeLab Thailand — ทุกคำถามมีค่า ถามเพื่อลูก ถามได้เลยครับ 🙏</p>
+  </div>
+
+  <footer>สรุปจากเอกสาร “[CodeLab] Parents Meeting 2026” · ข้อมูลตารางแข่งอัพเดท ณ 27 พ.ค. 2026 · อาจมีการเปลี่ยนแปลง</footer>
+
+</div>
+</body>
+</html>
